@@ -1,0 +1,61 @@
+
+.answer {
+  flex: 0 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(#0e0124, #22074d);
+  border-radius: 10px;
+  border: 1px solid #fff;
+  font-size: 20px;
+  font-weight: 300;
+  cursor: pointer;
+
+  &:hover{
+    background: mediumblue;
+  }
+}
+.answer.active{
+  background: mediumblue;
+}
+
+.answer.correct{
+  animation: correct 3s ease forwards;
+}
+@keyframes correct {
+  0%,
+  22%,
+  42%{
+    background: mediumblue;
+  }
+  20%,
+  40%,
+  60%{
+    background: linear-gradient(#0e0124, #22074d);
+  }
+  62%,
+  100%{
+    background:green;
+  }
+}
+
+.answer.wrong{
+  animation: wrong 3s ease forwards;
+}
+@keyframes wrong {
+  0%,
+  22%,
+  42%{
+    background: mediumblue;
+  }
+  20%,
+  40%,
+  60%{
+    background: linear-gradient(#0e0124, #22074d);
+  }
+  62%,
+  100%{
+    background:crimson;
+  }
+}

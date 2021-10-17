@@ -1,0 +1,25 @@
+.task {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+.question {
+  width: 80%;
+  background: linear-gradient(#100241, #000);
+  border: 3px solid #fff;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+.answers {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  row-gap: 20px;
+  column-gap: 10px;
+  flex-wrap: wrap;
+}

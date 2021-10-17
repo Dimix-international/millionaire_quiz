@@ -1,0 +1,27 @@
+.main {
+  flex: 0 1 75%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), #020230),
+  url("./../../../assets/bg.jpg") 50%/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+.top , .bottom {
+  flex:0 1 50%;
+}
+.top {
+  position: relative;
+}
+.timer {
+  width: 70px;
+  height: 70px;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  bottom: 10px;
+  left: 80px;
+}
