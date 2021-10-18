@@ -18,6 +18,7 @@ export const Pyramid = React.memo(() => {
                             <MoneyItem
                                 key={q.id}
                                 id={q.id}
+                                saveMoney={q.saveMoney}
                                 amount={q.amount}
                                 activeQuestion={activeQuestion}
                             />

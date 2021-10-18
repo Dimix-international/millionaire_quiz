@@ -1,0 +1,39 @@
+.start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 300px;
+
+  input {
+    width: 400px;
+    padding: 10px;
+    font-size: 36px;
+    font-weight: 700;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  input.inputError::placeholder{
+    color:red;
+  }
+
+  button {
+    width: 400px;
+    padding: 10px 0;
+    font-size: 32px;
+    align-self: flex-start;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: all 0.3s;
+
+    &:hover{
+      background-color: green;
+      color:#fff;
+    }
+  }
+}
+.inputError {
+  border: 5px solid red;
+}

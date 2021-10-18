@@ -2,26 +2,25 @@ import React, {useEffect, useState} from 'react';
 import s from './BlockTask.module.scss';
 import {Answer} from "./Answer/Answer";
 import {useDispatch, useSelector} from "react-redux";
-import {RootReducerType} from "../../../../Redux/store";
+import {RootReducerType} from "../../../Redux/store";
 import {
     QuestionsType,
     QuizReducerType,
     stopGameAC
-} from "../../../../Redux/quiz-reducer";
+} from "../../../Redux/quiz-reducer";
 import {Dispatch} from "redux";
 
 type BlockTaskType = {
-    timerID: number | null
-    setStartTime: () => void
+
 }
 export const BlockTask: React.FC<BlockTaskType> = React.memo((props) => {
-
-    const {timerID, setStartTime} = props;
 
     const questions = useSelector<RootReducerType, Array<QuestionsType>>(state => state.quiz.questions);
     const activeQuestion = useSelector<RootReducerType, number>(state => state.quiz.activeQuestion);
 
     const [question, setQuestion] = useState<QuestionsType | null>(null);
+
+    const[disableAnswer, setDisableAnswer] = useState(false)
 
     const dispatch = useDispatch<Dispatch<QuizReducerType>>()
 
@@ -30,7 +29,9 @@ export const BlockTask: React.FC<BlockTaskType> = React.memo((props) => {
             dispatch(stopGameAC(true));
             return
         }
-        setQuestion(questions[activeQuestion - 1])
+        setDisableAnswer(false);
+        setQuestion(questions[activeQuestion - 1]);
+
     }, [activeQuestion, questions, dispatch])
 
 
@@ -45,9 +46,8 @@ export const BlockTask: React.FC<BlockTaskType> = React.memo((props) => {
                             element={an}
                             text={an.text}
                             activeQuestion={activeQuestion}
-                            timerID={timerID}
-                            setStartTime={setStartTime}
-
+                            disableAnswer={disableAnswer}
+                            setDisableAnswer={setDisableAnswer}
                         />
                     )
                 })}
