@@ -3,17 +3,16 @@ import s from './MoneyItem.module.scss'
 
 
 type MoneyItemType = {
-    id:number,
-    amount:string
-    activeQuestion:number
+    id: number,
+    amount: string
+    activeQuestion: number
 }
 
-export const MoneyItem:React.FC<MoneyItemType> = React.memo((props) => {
-    const{id, amount, activeQuestion} = props;
+export const MoneyItem: React.FC<MoneyItemType> = React.memo((props) => {
+        const {id, amount, activeQuestion} = props;
 
-    const[active,setActive] = useState(activeQuestion);
 
-    const finalClass = active === id ? `${s.moneyListItem} ${s.active}` : s.moneyListItem;
+        const finalClass = activeQuestion === id ? `${s.moneyListItem} ${s.active}` : s.moneyListItem;
         return (
             <li className={`${finalClass}`}>
                 <span className={s.moneyListItem__number}>{id}</span>

@@ -11,12 +11,15 @@ export type AnswersType = {
     text:string,
     correct:boolean
 }
-type InitialStateType = {
+export type InitialStateType = {
     pyramid: Array<ListQuestionAndAmountType>,
     activeQuestion:number
-    questions: Array<QuestionsType>
+    questions: Array<QuestionsType>,
+    earnedMoney:string,
+    stopGame:boolean,
+    timeGame:number,
 }
-const initialState:InitialStateType = {
+export const initialState:InitialStateType = {
     pyramid: [
         {id:1, amount:'$ 100'},
         {id:2, amount:'$ 200'},
@@ -102,11 +105,45 @@ const initialState:InitialStateType = {
                 },
             ]
         },
-    ]
+    ],
+    earnedMoney:'$ 0',
+    stopGame: false,
+    timeGame:30,
 }
 
-export const quizReducer = (state:InitialStateType = initialState, action:any):InitialStateType => {
+export type QuizReducerType = ChangeQuestionType | StopGameType;
+
+export const quizReducer = (state:InitialStateType = initialState, action:QuizReducerType):InitialStateType => {
     switch (action.type) {
+        case "CHANGE-QUESTION":
+            return {
+                ...state,
+                activeQuestion: action.activeQuestion,
+                earnedMoney: state.pyramid[action.activeQuestion - 2].amount
+            }
+        case "STOP-GAME": {
+            return {
+                ...state,
+                stopGame:action.stopGame
+            }
+        }
         default: return state
     }
+}
+
+
+type ChangeQuestionType = ReturnType<typeof changeQuestionAC>
+export const changeQuestionAC = (activeQuestion:number) => {
+    return {
+        type: 'CHANGE-QUESTION',
+        activeQuestion,
+    }as const
+}
+
+type StopGameType = ReturnType<typeof stopGameAC>
+export const stopGameAC = (stopGame:boolean) => {
+    return {
+        type: 'STOP-GAME',
+        stopGame,
+    }as const
 }

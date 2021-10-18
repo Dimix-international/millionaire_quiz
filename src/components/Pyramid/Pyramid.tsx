@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import s from './Pyramid.module.scss';
 import {MoneyItem} from "./MoneyItem/MoneyItem";
 import {useSelector} from "react-redux";
@@ -10,7 +10,7 @@ export const Pyramid = React.memo(() => {
     const pyramid = useSelector<RootReducerType, Array<ListQuestionAndAmountType>>(state => state.quiz.pyramid);
     const activeQuestion = useSelector<RootReducerType, number>(state => state.quiz.activeQuestion);
 
-        return (
+    return (
             <div className={s.pyramid}>
                 <ul className={s.moneyList}>
                     {pyramid.map(q => {
