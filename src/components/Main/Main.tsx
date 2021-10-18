@@ -5,8 +5,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootReducerType} from "../../Redux/store";
 
 import {
-    InitialStateType, nextGameAC, QuizReducerType, setUserNameAC,
+    InitialStateType, nextGameAC, QuizReducerType,
 } from "../../Redux/quiz-reducer";
+
 import {Timer} from "./Timer/Timer";
 import {Dispatch} from "redux";
 
@@ -33,22 +34,27 @@ export const Main = React.memo(() => {
                     <h2 className={s.result}>
                         {activeQuestion > questions.length
                             ?
-                            <div className={s.winner}>
-                                <div>{userName} - you are winner!!!</div>
+                            <div className={s.panel}>
+                                <div>{userName}</div>
+                                <div>you are winner!!!</div>
                                 <div>
                                     You earned: <span>{earnedMoney}</span>
                                 </div>
-                                <button className={s.btnNewGame}
-                                        onClick={tryGameAgain}>try again?
+                                <button
+                                    className={s.btnNewGame}
+                                    onClick={tryGameAgain}>
+                                    try again?
                                 </button>
                             </div>
-                            : <div className={s.loose}>
+                            : <div className={s.panel}>
+                                <div>{userName}</div>
                                 <div>
-                                    {userName} - you earned:
-                                    <span>{earnedMoney}</span>
+                                    You earned: <span>{earnedMoney}</span>
                                 </div>
-                                <button className={s.btnNewGame}
-                                        onClick={tryGameAgain}>try again?
+                                <button
+                                    className={s.btnNewGame}
+                                    onClick={tryGameAgain}>
+                                    try again?
                                 </button>
                             </div>
                         }

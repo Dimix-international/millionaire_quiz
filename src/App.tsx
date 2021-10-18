@@ -7,17 +7,22 @@ import {RootReducerType} from "./Redux/store";
 import {StartGame} from "./components/StartGame/StartGame";
 import useSound from "use-sound";
 
+//@ts-ignore
+import startGameMusic from './assets/start_game.mp3';
 
 export const App = () => {
+
     const userName = useSelector<RootReducerType, null | string>(state => state.quiz.userName);
-    const [startMusicGame, { stop }] = useSound('https://allsoundsaround.com/wp-content/uploads/2020/12/zvuk-nachala-peredachi-kto-hochet-stat-millionerom-zastavki-5248.mp3?_=5');
+
+    const [startMusicGame, { stop }] = useSound(startGameMusic);
+
     useEffect(() => {
         if(!userName) {
-            startMusicGame()
+            startMusicGame();
         } else{
             stop();
         }
-    },[userName, startMusicGame, stop ]);
+    },[userName, startMusicGame, stop]);
 
 
     return (

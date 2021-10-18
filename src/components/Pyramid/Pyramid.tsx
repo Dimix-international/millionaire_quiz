@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import s from './Pyramid.module.scss';
 import {MoneyItem} from "./MoneyItem/MoneyItem";
 import {useSelector} from "react-redux";

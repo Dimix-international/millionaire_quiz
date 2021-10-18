@@ -8,6 +8,10 @@ import {
 } from "../../../Redux/quiz-reducer";
 import useSound from "use-sound";
 
+//@ts-ignore
+import finishTimeMusic from './../../../assets/finishTime.mp3';
+
+
 type TimerType = {
     activeQuestion:number,
 }
@@ -15,7 +19,7 @@ type TimerType = {
 export const Timer:React.FC<TimerType> = React.memo(props => {
 
     const {activeQuestion} = props;
-    const[wrongAnswer] = useSound('https://allsoundsaround.com/wp-content/uploads/2021/01/zvuk-nepravilnogo-otveta-vkto-hochet-stat-millionerom-5262-1.mp3?_=36');
+    const[finishedTime] = useSound(finishTimeMusic);
 
     const dispatch = useDispatch<Dispatch<QuizReducerType>>();
 
@@ -24,7 +28,7 @@ export const Timer:React.FC<TimerType> = React.memo(props => {
     useEffect(() => {
         let intervalId: number = window.setInterval(() => {
             if (timerValue === 0) {
-                wrongAnswer();
+                finishedTime();
                 dispatch(stopGameAC(true));
                 return clearInterval(intervalId)
             }
@@ -37,7 +41,7 @@ export const Timer:React.FC<TimerType> = React.memo(props => {
         return (() => {
             clearInterval(intervalId)
         })
-    }, [timerValue, dispatch]);
+    }, [timerValue, dispatch, finishedTime]);
 
     useEffect(() => {
         setTimerValue(30);

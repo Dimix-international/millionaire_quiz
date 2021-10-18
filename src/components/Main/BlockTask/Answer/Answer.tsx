@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import s from "./Answer.module.scss"
 import {
     AnswersType,
@@ -11,6 +11,10 @@ import {Dispatch} from "redux";
 import useSound from "use-sound";
 import {RootReducerType} from "../../../../Redux/store";
 
+//@ts-ignore
+import rightAnswerMusic from './../../../../assets/right.mp3';
+//@ts-ignore
+import wrongAnswerMusic from './../../../../assets/wrong.mp3';
 
 type AnswerType = {
     text: string,
@@ -18,7 +22,6 @@ type AnswerType = {
     activeQuestion: number,
     disableAnswer: boolean,
     setDisableAnswer: (value: boolean) => void
-
 }
 
 export const Answer: React.FC<AnswerType> = React.memo((props) => {
@@ -31,8 +34,8 @@ export const Answer: React.FC<AnswerType> = React.memo((props) => {
         setDisableAnswer
     } = props;
 
-    const [rightAnswer, {stop}] = useSound('https://allsoundsaround.com/wp-content/uploads/2020/12/otvet-vernyiy-5267.mp3?_=2');
-    const [wrongAnswer] = useSound('https://allsoundsaround.com/wp-content/uploads/2021/01/zvuk-nepravilnogo-otveta-vkto-hochet-stat-millionerom-5262-1.mp3?_=36');
+    const [rightAnswer, {stop}] = useSound(rightAnswerMusic);
+    const [wrongAnswer] = useSound(wrongAnswerMusic);
 
     const timerID = useSelector<RootReducerType, number | null>(state => state.quiz.timerID);
 
@@ -57,7 +60,7 @@ export const Answer: React.FC<AnswerType> = React.memo((props) => {
         delay(1500, () => {
             setClassName(element.correct ? `${s.answer} ${s.correct}` : `${s.answer} ${s.wrong}`);
         })
-        delay(2500, () => {
+        delay(2000, () => {
             if (element.correct) {
                 rightAnswer();
             } else {

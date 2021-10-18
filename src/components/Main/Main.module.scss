@@ -38,17 +38,17 @@
     margin-left: 10px;
   }
 }
-.winner {
-  text-align: center;
+.panel {
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
 }
 .btnNewGame {
   width: 300px;
   padding: 10px 0;
   font-size: 32px;
-  align-self: flex-start;
   background-color: #fff;
   border-radius: 10px;
   transition: all 0.3s;
@@ -57,10 +57,4 @@
     background-color: green;
     color:#fff;
   }
-}
-
-.loose {
-  display: flex;
-  flex-direction: column;
-  row-gap: 25px;
 }
