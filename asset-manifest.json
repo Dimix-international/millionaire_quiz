@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/millionaire_quiz/static/css/main.9e47e87d.chunk.css",
-    "main.js": "/millionaire_quiz/static/js/main.a2ac59f6.chunk.js",
-    "main.js.map": "/millionaire_quiz/static/js/main.a2ac59f6.chunk.js.map",
+    "main.js": "/millionaire_quiz/static/js/main.ed67e369.chunk.js",
+    "main.js.map": "/millionaire_quiz/static/js/main.ed67e369.chunk.js.map",
     "runtime-main.js": "/millionaire_quiz/static/js/runtime-main.432e8af4.js",
     "runtime-main.js.map": "/millionaire_quiz/static/js/runtime-main.432e8af4.js.map",
     "static/js/2.5d200201.chunk.js": "/millionaire_quiz/static/js/2.5d200201.chunk.js",
@@ -16,7 +16,7 @@
     "static/js/2.5d200201.chunk.js.LICENSE.txt": "/millionaire_quiz/static/js/2.5d200201.chunk.js.LICENSE.txt",
     "static/js/3.7acfd28d.chunk.js.LICENSE.txt": "/millionaire_quiz/static/js/3.7acfd28d.chunk.js.LICENSE.txt",
     "static/media/Main.module.scss": "/millionaire_quiz/static/media/bg.f548c218.jpg",
-    "static/media/finishTime.ba27af01.mp3": "/millionaire_quiz/static/media/finishTime.ba27af01.mp3",
+    "static/media/finishTime.634ba4da.mp3": "/millionaire_quiz/static/media/finishTime.634ba4da.mp3",
     "static/media/App.module.scss": "/millionaire_quiz/static/media/maxresdefault (1).54da0f7f.jpg",
     "static/media/right.1785c803.mp3": "/millionaire_quiz/static/media/right.1785c803.mp3",
     "static/media/right_easy.5d2c35f8.mp3": "/millionaire_quiz/static/media/right_easy.5d2c35f8.mp3",
@@ -27,6 +27,6 @@
     "static/js/runtime-main.432e8af4.js",
     "static/js/2.5d200201.chunk.js",
     "static/css/main.9e47e87d.chunk.css",
-    "static/js/main.a2ac59f6.chunk.js"
+    "static/js/main.ed67e369.chunk.js"
   ]
 }
