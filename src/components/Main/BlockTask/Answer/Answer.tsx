@@ -14,6 +14,8 @@ import {RootReducerType} from "../../../../Redux/store";
 //@ts-ignore
 import rightAnswerMusic from './../../../../assets/right.mp3';
 //@ts-ignore
+import rightEasyAnswerMusic from './../../../../assets/right_easy.mp3';
+//@ts-ignore
 import wrongAnswerMusic from './../../../../assets/wrong.mp3';
 
 type AnswerType = {
@@ -35,6 +37,7 @@ export const Answer: React.FC<AnswerType> = React.memo((props) => {
     } = props;
 
     const [rightAnswer, {stop}] = useSound(rightAnswerMusic);
+    const [rightEasyAnswer] = useSound(rightEasyAnswerMusic);
     const [wrongAnswer] = useSound(wrongAnswerMusic);
 
     const timerID = useSelector<RootReducerType, number | null>(state => state.quiz.timerID);
@@ -62,7 +65,11 @@ export const Answer: React.FC<AnswerType> = React.memo((props) => {
         })
         delay(2000, () => {
             if (element.correct) {
-                rightAnswer();
+                if (activeQuestion < 6) {
+                    rightEasyAnswer();
+                } else {
+                    rightAnswer();
+                }
             } else {
                 wrongAnswer();
             }
