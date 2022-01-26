@@ -7,7 +7,7 @@ import {QuizReducerType, setUserNameAC} from "../../Redux/quiz-reducer";
 export const StartGame = () => {
     const dispatch = useDispatch<Dispatch<QuizReducerType>>();
 
-    const [name, setName] = useState<string>('');
+    const [name, setName] = useState('');
     const [error, setError] = useState<string | null>(null);
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
